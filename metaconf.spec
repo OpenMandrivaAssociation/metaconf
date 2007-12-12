@@ -1,12 +1,12 @@
 Name: metaconf
 Version: 1.3.1
-Release: %mkrel 5
+Release: %mkrel 6
 License: GPL
 Group: System/Configuration/Other
 Summary: Maintains multiple configurations in the same machine
 Source: metaconf-%{version}.tar.bz2
 Patch0:  metaconf-use_our_arping.patch
-URL: https://moin.conectiva.com.br/MetaConf
+URL: http://niemeyer.net/metaconf
 Requires(post,preun): rpm-helper
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: python-devel
