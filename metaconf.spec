@@ -8,6 +8,7 @@ Source: metaconf-%{version}.tar.bz2
 Patch0:  metaconf-use_our_arping.patch
 URL: http://niemeyer.net/metaconf
 Requires(post,preun): rpm-helper
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: python-devel
 BuildArch: noarch 
 
