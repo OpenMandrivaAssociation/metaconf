@@ -24,6 +24,7 @@ the user knows how to configure the softwares properly.
 %prep
 %setup -q 
 %patch0 -p0
+
 %build
 python setup.py build
 
@@ -38,18 +39,16 @@ install -m 755 contrib/metaconf.init %{buildroot}%{_initrddir}/%{name}
 install -m 755 contrib/metaconf-autochooser.sh %{buildroot}%{_bindir}/
 install -m 600 contrib/metaconf.macs %{buildroot}%{_sysconfdir}
 
-find %{buildroot} -name '*.pyc' -name '*.pyo' -exec rm -f {} \;
-
 %clean
 rm -rf %{buildroot}
 
-%files -f INSTALLED_FILES
+%files
 %defattr(0644,root,root,0755)
 %doc LICENSE doc/metaconf.moin
 %defattr(-,root,root)
-%{_bindir}/metaconf-chooser.sh
-%{_bindir}/metaconf-autochooser.sh
+%{_bindir}/*
 %config(noreplace) %{_sysconfdir}/metaconf.macs
+%{py_puresitedir}/*
 %{_initrddir}/metaconf
 
 %post
