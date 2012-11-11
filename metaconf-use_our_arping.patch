@@ -1,0 +1,13 @@
+Index: contrib/metaconf-autochooser.sh
+===================================================================
+--- contrib/metaconf-autochooser.sh
++++ contrib/metaconf-autochooser.sh	2005-12-09 10:13:28.000000000 +0100
+@@ -8,7 +8,7 @@
+ 	[ -z "$line" ] && continue
+ 	set $line # $1=profile, $2=interface, $3=ip, $4=mac
+ 	ip link set $2 up # so we can arping, no need to have IP yet
+-	([ -n "$($arping -R -A -i "$2" -c 1 -t "$4" -0 "$3")" ] && echo "$1") &
++	($arping -c 1 -I $2 -s 0.0.0.0 $3 | grep -q "\[$4\]" && echo "$1") &
+ done < $datafile; wait)"
+ 
+ [ -z "$profile" ] && exit 1 # we do nothing for an unknown network
