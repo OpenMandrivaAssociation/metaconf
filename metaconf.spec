@@ -1,6 +1,6 @@
 Name: metaconf
 Version: 1.3.1
-Release: %mkrel 11
+Release: 12
 License: GPL
 Group: System/Configuration/Other
 Summary: Maintains multiple configurations in the same machine
